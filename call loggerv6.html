@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fault Logging Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('backround/backround.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    /* Form container with a black background, left aligned */
+    .form-container {
+      background: #000;
+      padding: 20px;
+      max-width: 600px;
+      margin: 40px 0 40px 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      text-align: left;
+    }
+    .form-container h2 {
+      margin-top: 0;
+      color: #fff;
+      text-align: left;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+    /* White background for input fields and textarea */
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0 12px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      background-color: #fff;
+      color: #000;
+      text-align: left;
+    }
+    input[type="file"] {
+      padding: 3px;
+    }
+    /* Darker orange submit button with centered text */
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #FF8C00; /* Darker orange */
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #e07b00;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Log a Fault</h2>
+    <!-- Replace YOUR_FORM_ID with your actual Formspree endpoint ID -->
+    <form id="faultForm" method="POST" action="https://formspree.io/f/xeokajwy" enctype="multipart/form-data">
+      <!-- Store/Company Name -->
+      <label for="storeName">Store/Company Name:</label>
+      <input type="text" id="storeName" name="storeName" placeholder="Enter store or company name" required>
+      
+      <!-- Name of Person -->
+      <label for="personName">Name of Person:</label>
+      <input type="text" id="personName" name="personName" placeholder="Enter your name" required>
+      
+      <!-- Cellphone Number -->
+      <label for="cellphone">Cellphone Number:</label>
+      <input type="tel" id="cellphone" name="cellphone" placeholder="Enter your cellphone number" required>
+      
+      <!-- Email -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      
+      <!-- Picture of Fault -->
+      <label for="faultPicture">Picture of Fault:</label>
+      <input type="file" id="faultPicture" name="faultPicture" accept="image/*" capture="environment">
+      
+      <!-- Fault Description -->
+      <label for="description">Fault Description:</label>
+      <textarea id="description" name="description" rows="4" placeholder="Describe the fault in detail" required></textarea>
+      
+      <button type="submit">Submit Fault</button>
+    </form>
+    <!-- You can optionally include a statusMessage div for success/error feedback -->
+    <div id="statusMessage"></div>
+  </div>
+</body>
+</html>
